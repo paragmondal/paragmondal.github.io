@@ -16,6 +16,24 @@
 body { font-family: 'Inter', sans-serif; }
 .soft-shadow { box-shadow: 0 10px 40px rgba(0,0,0,0.06); }
 .card-hover:hover { transform: translateY(-5px); }
+
+/* typing animation */
+.typing span {
+  display:inline-block;
+  width:6px;
+  height:6px;
+  margin:0 2px;
+  background:#888;
+  border-radius:50%;
+  animation: bounce 1.3s infinite;
+}
+.typing span:nth-child(2){ animation-delay:0.2s }
+.typing span:nth-child(3){ animation-delay:0.4s }
+
+@keyframes bounce {
+  0%,80%,100% { transform:translateY(0); opacity:0.4 }
+  40% { transform:translateY(-6px); opacity:1 }
+}
 </style>
 </head>
 
@@ -24,16 +42,13 @@ body { font-family: 'Inter', sans-serif; }
 <!-- ================= NAVBAR ================= -->
 <nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur border-b">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    
     <div class="font-bold text-lg">Parag Mondal</div>
-
     <div class="hidden md:flex gap-8 items-center">
       <a href="#home">Home</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </div>
-
     <div class="flex items-center gap-4">
       <button onclick="toggleDark()" class="px-3 py-1 rounded-lg border text-sm">🌙</button>
       <button class="md:hidden" onclick="toggleMenu()">☰</button>
@@ -60,24 +75,15 @@ body { font-family: 'Inter', sans-serif; }
 
     <div>
       <h1 class="text-5xl font-bold mb-4">Parag Mondal</h1>
-      
-      <p class="text-xl text-blue-600 font-semibold mb-6">
-        AI & ML Specialist | Cybersecurity | Web Dev
-      </p>
-
+      <p class="text-xl text-blue-600 font-semibold mb-6">AI & ML Specialist | Cybersecurity | Web Dev</p>
       <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
-        I am a passionate AI & Machine Learning specialist with deep expertise in
-        Computer Vision, Deep Learning, and Generative AI.
+        I am a passionate AI & Machine Learning specialist with deep expertise in Computer Vision, Deep Learning, and Generative AI.
       </p>
 
       <div class="flex gap-4 flex-wrap">
         <a href="https://drive.google.com/file/d/1EL3k6oEn92NWy5GN81BhmWCJ-AmoiD2F/view?usp=drive_link" target="_blank"
-           class="bg-gray-900 text-white px-8 py-3 rounded-full font-medium hover:bg-black transition">
-           Download CV
-        </a>
-
-        <a href="https://github.com/paragmondal" target="_blank"
-           class="border px-8 py-3 rounded-full">GitHub</a>
+           class="bg-gray-900 text-white px-8 py-3 rounded-full font-medium hover:bg-black transition">Download CV</a>
+        <a href="https://github.com/paragmondal" target="_blank" class="border px-8 py-3 rounded-full">GitHub</a>
       </div>
 
       <div class="flex gap-6 mt-8 text-gray-500">
@@ -184,9 +190,6 @@ body { font-family: 'Inter', sans-serif; }
 function toggleDark(){ document.documentElement.classList.toggle('dark'); }
 function toggleMenu(){ document.getElementById('mobileMenu').classList.toggle('hidden'); }
 
-
-/* ================= RESUME KNOWLEDGE BASE ================= */
-
 const resumeData = {
   name: "Parag Mondal",
   role: "AI & Machine Learning Specialist",
@@ -197,69 +200,69 @@ const resumeData = {
   email: "paragmondal0112@gmail.com"
 };
 
-
-/* ================= CHAT SYSTEM ================= */
-
-let greeted = false;
+let greeted=false;
 
 function toggleChat(){
-  const chat = document.getElementById('chatBox');
+  const chat=document.getElementById('chatBox');
   chat.classList.toggle('hidden');
-
   if(!greeted){
-    addMsg("👋 Hello! I'm PM's AI Assistant. I can answer questions about Parag's resume, skills, projects, and experience. How can I help you today?","bot");
-    greeted = true;
+    addMsg("👋 Hello! I'm PM's AI Assistant. Ask me anything about Parag's resume, skills, or projects.","bot");
+    greeted=true;
   }
 }
 
-function addMsg(text, sender){
-  const box = document.getElementById('chatMessages');
-  const div = document.createElement('div');
-  div.className = sender === 'user' ? 'text-right' : 'text-left';
-  div.innerHTML = `<span class="inline-block px-3 py-2 rounded-lg ${sender==='user'?'bg-blue-500 text-white':'bg-gray-200 dark:bg-gray-700'}">${text}</span>`;
+function addMsg(text,sender){
+  const box=document.getElementById('chatMessages');
+  const div=document.createElement('div');
+  div.className=sender==='user'?'text-right':'text-left';
+  div.innerHTML=`<span class="inline-block px-3 py-2 rounded-lg ${sender==='user'?'bg-blue-500 text-white':'bg-gray-200 dark:bg-gray-700'}">${text}</span>`;
   box.appendChild(div);
-  box.scrollTop = box.scrollHeight;
+  box.scrollTop=box.scrollHeight;
+}
+
+function showTyping(){
+  const box=document.getElementById('chatMessages');
+  const div=document.createElement('div');
+  div.id='typingIndicator';
+  div.innerHTML=`<span class="inline-block px-3 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 typing"><span></span><span></span><span></span></span>`;
+  box.appendChild(div);
+  box.scrollTop=box.scrollHeight;
+}
+
+function removeTyping(){
+  const t=document.getElementById('typingIndicator');
+  if(t) t.remove();
 }
 
 function sendMessage(){
-  const input = document.getElementById('chatInput');
-  const msg = input.value.trim();
+  const input=document.getElementById('chatInput');
+  const msg=input.value.trim();
   if(!msg) return;
   addMsg(msg,'user');
   input.value='';
 
+  showTyping();
+
   setTimeout(()=>{
+    removeTyping();
     addMsg(getAIResponse(msg),'bot');
-  },400);
+  },1000);
 }
 
 
-/* ================= SMART RESUME RESPONSES ================= */
+document.getElementById('chatInput').addEventListener('keydown',function(e){
+  if(e.key==='Enter') sendMessage();
+});
 
 function getAIResponse(q){
-  q = q.toLowerCase();
-
-  if(q.includes('who'))
-    return `${resumeData.name} is an ${resumeData.role} focused on ${resumeData.focus}.`;
-
-  if(q.includes('skill'))
-    return `Key skills: ${resumeData.skills.join(', ')}`;
-
-  if(q.includes('education'))
-    return `Education: ${resumeData.education}`;
-
-  if(q.includes('goal') || q.includes('career'))
-    return `Career goal: ${resumeData.goal}`;
-
-  if(q.includes('contact') || q.includes('email'))
-    return `You can contact Parag at ${resumeData.email}`;
-
-  if(q.includes('project'))
-    return `Projects include NeRF reconstruction, GAN image enhancement, and diffusion-based learning.`;
-
-  if(q.includes('resume') || q.includes('cv'))
-    return `You can download the resume using the Download CV button.`;
-
+  q=q.toLowerCase();
+  if(q.includes('who')) return `${resumeData.name} is an ${resumeData.role} focused on ${resumeData.focus}.`;
+  if(q.includes('skill')) return `Key skills: ${resumeData.skills.join(', ')}`;
+  if(q.includes('education')) return `Education: ${resumeData.education}`;
+  if(q.includes('goal')||q.includes('career')) return `Career goal: ${resumeData.goal}`;
+  if(q.includes('contact')||q.includes('email')) return `You can contact Parag at ${resumeData.email}`;
+  if(q.includes('project')) return `Projects include NeRF reconstruction, GAN image enhancement, and diffusion-based learning.`;
+  if(q.includes('resume')||q.includes('cv')) return `You can download the resume using the Download CV button.`;
   return "I can answer questions about Parag's resume, skills, education, projects, and contact info.";
 }
 </script>
