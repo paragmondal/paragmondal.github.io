@@ -5,16 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Parag Mondal | AI ML Portfolio</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 
 <script>
-  tailwind.config = {
-    darkMode: 'class'
-  }
+  tailwind.config = { darkMode: 'class' }
 </script>
 
 <style>
@@ -40,18 +35,11 @@ body { font-family: 'Inter', sans-serif; }
     </div>
 
     <div class="flex items-center gap-4">
-      
-      <!-- DARK MODE -->
-      <button onclick="toggleDark()" class="px-3 py-1 rounded-lg border text-sm">
-        🌙
-      </button>
-
-      <!-- MOBILE MENU -->
+      <button onclick="toggleDark()" class="px-3 py-1 rounded-lg border text-sm">🌙</button>
       <button class="md:hidden" onclick="toggleMenu()">☰</button>
     </div>
   </div>
 
-  <!-- MOBILE DROPDOWN -->
   <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 space-y-2">
     <a href="#home" class="block">Home</a>
     <a href="#skills" class="block">Skills</a>
@@ -65,13 +53,11 @@ body { font-family: 'Inter', sans-serif; }
 <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-28">
   <div class="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
 
-    <!-- PROFILE IMAGE -->
     <div class="flex justify-center">
       <img src="https://avatars.githubusercontent.com/u/251680303?v=4"
            class="w-72 h-72 rounded-full object-cover border-8 border-white shadow-2xl">
     </div>
 
-    <!-- INTRO -->
     <div>
       <h1 class="text-5xl font-bold mb-4">Parag Mondal</h1>
       
@@ -83,9 +69,7 @@ body { font-family: 'Inter', sans-serif; }
         I am a passionate AI & Machine Learning specialist with deep expertise in
         Computer Vision, Deep Learning, and Generative AI. My work bridges the gap
         between theoretical research and practical application, focusing on image
-        restoration, few-shot learning, and neural rendering. I am proficient in
-        Python, Java, C, and modern web technologies, always striving to build
-        intelligent systems that solve real-world problems.
+        restoration, few-shot learning, and neural rendering.
       </p>
 
       <div class="flex gap-4 flex-wrap">
@@ -111,9 +95,7 @@ body { font-family: 'Inter', sans-serif; }
 <!-- ================= SKILLS ================= -->
 <section id="skills" class="py-20 bg-white dark:bg-gray-900">
 <div class="max-w-6xl mx-auto px-6 text-center">
-
 <h2 class="text-3xl font-bold mb-10">Technical Expertise</h2>
-
 <div class="flex flex-wrap justify-center gap-4">
 <span class="px-5 py-2 rounded-full bg-gray-100 dark:bg-gray-800">Python</span>
 <span class="px-5 py-2 rounded-full bg-gray-100 dark:bg-gray-800">Java</span>
@@ -134,51 +116,30 @@ body { font-family: 'Inter', sans-serif; }
 <!-- ================= PROJECTS ================= -->
 <section id="projects" class="py-20">
 <div class="max-w-5xl mx-auto px-6">
-
 <h2 class="text-3xl font-bold mb-2">Featured Projects</h2>
-<p class="text-gray-500 mb-12">
-A selection of my recent work in Artificial Intelligence, Computer Vision, and Machine Learning.
-</p>
+<p class="text-gray-500 mb-12">A selection of my recent work.</p>
 
-
-<!-- PROJECT CARD TEMPLATE -->
-<div class="bg-white dark:bg-gray-900 rounded-2xl p-8 mb-8 soft-shadow card-hover transition">
-<h3 class="text-2xl font-semibold mb-2">Frequ-Spatial Revival</h3>
-<p class="text-gray-500 mb-4">HYBRID FREQUENCY-SPATIAL IMAGE RESTORATION</p>
-<p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-Developed a dual-branch deep network combining U-Net spatial processing with FFT-based
-frequency analysis on DIV2K. Built custom complex convolution and attention-fusion
-modules, achieving a 14.88 dB PSNR gain over baselines with perceptual loss integration.
-</p>
-<a href="#" class="text-blue-500 mt-3 inline-block">Project GitHub (Add later)</a>
+<div class="bg-white dark:bg-gray-900 rounded-2xl p-8 mb-8 soft-shadow card-hover">
+<h3 class="text-2xl font-semibold">Frequ-Spatial Revival</h3>
+<p class="text-gray-500 mb-3">Hybrid Image Restoration</p>
+<p class="text-gray-600 dark:text-gray-400">Deep network combining U-Net and FFT.</p>
+<a href="#" class="text-blue-500">Project GitHub (Add later)</a>
 </div>
 
-<div class="bg-white dark:bg-gray-900 rounded-2xl p-8 mb-8 soft-shadow card-hover transition">
-<h3 class="text-2xl font-semibold mb-2">VisionFlux</h3>
-<p class="text-gray-500 mb-4">DIFFUSION-BASED AUGMENTATION</p>
-<p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-Implemented a conditional diffusion pipeline to generate synthetic mini-ImageNet samples
-for few-shot classification improvement.
-</p>
-<a href="#" class="text-blue-500 mt-3 inline-block">Project GitHub (Add later)</a>
+<div class="bg-white dark:bg-gray-900 rounded-2xl p-8 mb-8 soft-shadow card-hover">
+<h3 class="text-2xl font-semibold">VisionFlux</h3>
+<p class="text-gray-600 dark:text-gray-400">Diffusion based augmentation.</p>
+<a href="#" class="text-blue-500">Project GitHub (Add later)</a>
 </div>
 
-<div class="bg-white dark:bg-gray-900 rounded-2xl p-8 mb-8 soft-shadow card-hover transition">
-<h3 class="text-2xl font-semibold mb-2">NeRF Scene Reconstruction</h3>
-<p class="text-gray-500 mb-4">NEURAL RADIANCE FIELDS</p>
-<p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-Built a NeRF pipeline with Instant-NGP and COLMAP poses for fast volumetric rendering.
-</p>
-<a href="#" class="text-blue-500 mt-3 inline-block">Project GitHub (Add later)</a>
+<div class="bg-white dark:bg-gray-900 rounded-2xl p-8 mb-8 soft-shadow card-hover">
+<h3 class="text-2xl font-semibold">NeRF Scene Reconstruction</h3>
+<a href="#" class="text-blue-500">Project GitHub (Add later)</a>
 </div>
 
-<div class="bg-white dark:bg-gray-900 rounded-2xl p-8 soft-shadow card-hover transition">
-<h3 class="text-2xl font-semibold mb-2">Imagen Low-Light Enhancement</h3>
-<p class="text-gray-500 mb-4">GAN IMAGE ENHANCEMENT</p>
-<p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-Built a UNet-GAN pipeline for real-time low-light image enhancement.
-</p>
-<a href="#" class="text-blue-500 mt-3 inline-block">Project GitHub (Add later)</a>
+<div class="bg-white dark:bg-gray-900 rounded-2xl p-8 soft-shadow card-hover">
+<h3 class="text-2xl font-semibold">Imagen Low Light</h3>
+<a href="#" class="text-blue-500">Project GitHub (Add later)</a>
 </div>
 
 </div>
@@ -188,38 +149,78 @@ Built a UNet-GAN pipeline for real-time low-light image enhancement.
 <!-- ================= FOOTER ================= -->
 <footer id="contact" class="bg-white dark:bg-gray-900 py-10 border-t">
 <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-
 <div>
 <h3 class="font-semibold">Parag Mondal</h3>
 <p class="text-gray-500 text-sm">Building intelligent systems for a better future.</p>
 </div>
-
 <div class="flex gap-6 mt-4 md:mt-0 text-gray-500">
 <a href="https://www.linkedin.com/in/parag-mondal-1a124a2b0/">LinkedIn</a>
 <a href="https://github.com/paragmondal">GitHub</a>
 <a href="mailto:paragmondal0112@gmail.com">Email</a>
 </div>
-
 <p class="text-gray-400 text-sm mt-4 md:mt-0">© 2026 Parag Mondal.</p>
-
 </div>
 </footer>
 
 
-<!-- ================= FLOATING AI BUTTON ================= -->
-<button class="fixed bottom-6 right-6 bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg hover:bg-black">
-✨ Ask AI Profile
+<!-- ================= CHAT BUTTON ================= -->
+<button onclick="toggleChat()" class="fixed bottom-6 right-6 bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg hover:bg-black">
+✨ PM's PM's AI Assistant
 </button>
+
+
+<!-- ================= CHAT WINDOW ================= -->
+<div id="chatBox" class="hidden fixed bottom-24 right-6 w-80 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+
+<div class="bg-gray-900 text-white px-4 py-3 font-semibold">PM's AI Assistant</div>
+
+<div id="chatMessages" class="p-4 h-72 overflow-y-auto text-sm space-y-3"></div>
+
+<div class="flex border-t">
+<input id="chatInput" placeholder="Ask about Parag..." class="flex-1 px-3 py-2 bg-transparent outline-none">
+<button onclick="sendMessage()" class="px-4">➤</button>
+</div>
+
+</div>
 
 
 <!-- ================= SCRIPTS ================= -->
 <script>
-function toggleDark(){
-  document.documentElement.classList.toggle('dark');
+function toggleDark(){ document.documentElement.classList.toggle('dark'); }
+function toggleMenu(){ document.getElementById('mobileMenu').classList.toggle('hidden'); }
+function toggleChat(){ document.getElementById('chatBox').classList.toggle('hidden'); }
+
+function addMsg(text, sender){
+  const box = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = sender === 'user' ? 'text-right' : 'text-left';
+  div.innerHTML = `<span class="inline-block px-3 py-2 rounded-lg ${sender==='user'?'bg-blue-500 text-white':'bg-gray-200 dark:bg-gray-700'}">${text}</span>`;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
 }
 
-function toggleMenu(){
-  document.getElementById('mobileMenu').classList.toggle('hidden');
+function sendMessage(){
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if(!msg) return;
+  addMsg(msg,'user');
+  input.value='';
+
+  setTimeout(()=>{
+    addMsg(getAIResponse(msg),'bot');
+  },500);
+}
+
+function getAIResponse(q){
+  q=q.toLowerCase();
+
+  if(q.includes('who') || q.includes('about')) return 'Parag Mondal is an AI & ML specialist focused on Computer Vision, Deep Learning, and Cybersecurity.';
+  if(q.includes('skill')) return 'Skills include Python, Machine Learning, Deep Learning, Computer Vision, React, and Cybersecurity.';
+  if(q.includes('contact')) return 'You can contact Parag via email: paragmondal0112@gmail.com';
+  if(q.includes('project')) return 'Parag has worked on NeRF reconstruction, image restoration, GAN enhancement, and diffusion models.';
+  if(q.includes('cv') || q.includes('resume')) return 'You can download the CV from the Download CV button on the homepage.';
+
+  return 'I am Parag\'s AI assistant. Ask about skills, projects, or contact info.';
 }
 </script>
 
