@@ -67,9 +67,7 @@ body { font-family: 'Inter', sans-serif; }
 
       <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
         I am a passionate AI & Machine Learning specialist with deep expertise in
-        Computer Vision, Deep Learning, and Generative AI. My work bridges the gap
-        between theoretical research and practical application, focusing on image
-        restoration, few-shot learning, and neural rendering.
+        Computer Vision, Deep Learning, and Generative AI.
       </p>
 
       <div class="flex gap-4 flex-wrap">
@@ -121,14 +119,11 @@ body { font-family: 'Inter', sans-serif; }
 
 <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 mb-8 soft-shadow card-hover">
 <h3 class="text-2xl font-semibold">Frequ-Spatial Revival</h3>
-<p class="text-gray-500 mb-3">Hybrid Image Restoration</p>
-<p class="text-gray-600 dark:text-gray-400">Deep network combining U-Net and FFT.</p>
 <a href="#" class="text-blue-500">Project GitHub (Add later)</a>
 </div>
 
 <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 mb-8 soft-shadow card-hover">
 <h3 class="text-2xl font-semibold">VisionFlux</h3>
-<p class="text-gray-600 dark:text-gray-400">Diffusion based augmentation.</p>
 <a href="#" class="text-blue-500">Project GitHub (Add later)</a>
 </div>
 
@@ -165,7 +160,7 @@ body { font-family: 'Inter', sans-serif; }
 
 <!-- ================= CHAT BUTTON ================= -->
 <button onclick="toggleChat()" class="fixed bottom-6 right-6 bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg hover:bg-black">
-✨ PM's PM's AI Assistant
+🤖 PM's AI Assistant
 </button>
 
 
@@ -188,7 +183,34 @@ body { font-family: 'Inter', sans-serif; }
 <script>
 function toggleDark(){ document.documentElement.classList.toggle('dark'); }
 function toggleMenu(){ document.getElementById('mobileMenu').classList.toggle('hidden'); }
-function toggleChat(){ document.getElementById('chatBox').classList.toggle('hidden'); }
+
+
+/* ================= RESUME KNOWLEDGE BASE ================= */
+
+const resumeData = {
+  name: "Parag Mondal",
+  role: "AI & Machine Learning Specialist",
+  skills: ["Python","Machine Learning","Deep Learning","Computer Vision","Cybersecurity","React","TensorFlow","PyTorch"],
+  focus: "Computer Vision, Generative AI, Neural Rendering, Image Restoration",
+  education: "B.Tech Computer Science Engineering",
+  goal: "Build intelligent real-world AI systems",
+  email: "paragmondal0112@gmail.com"
+};
+
+
+/* ================= CHAT SYSTEM ================= */
+
+let greeted = false;
+
+function toggleChat(){
+  const chat = document.getElementById('chatBox');
+  chat.classList.toggle('hidden');
+
+  if(!greeted){
+    addMsg("👋 Hello! I'm PM's AI Assistant. I can answer questions about Parag's resume, skills, projects, and experience. How can I help you today?","bot");
+    greeted = true;
+  }
+}
 
 function addMsg(text, sender){
   const box = document.getElementById('chatMessages');
@@ -208,19 +230,37 @@ function sendMessage(){
 
   setTimeout(()=>{
     addMsg(getAIResponse(msg),'bot');
-  },500);
+  },400);
 }
 
+
+/* ================= SMART RESUME RESPONSES ================= */
+
 function getAIResponse(q){
-  q=q.toLowerCase();
+  q = q.toLowerCase();
 
-  if(q.includes('who') || q.includes('about')) return 'Parag Mondal is an AI & ML specialist focused on Computer Vision, Deep Learning, and Cybersecurity.';
-  if(q.includes('skill')) return 'Skills include Python, Machine Learning, Deep Learning, Computer Vision, React, and Cybersecurity.';
-  if(q.includes('contact')) return 'You can contact Parag via email: paragmondal0112@gmail.com';
-  if(q.includes('project')) return 'Parag has worked on NeRF reconstruction, image restoration, GAN enhancement, and diffusion models.';
-  if(q.includes('cv') || q.includes('resume')) return 'You can download the CV from the Download CV button on the homepage.';
+  if(q.includes('who'))
+    return `${resumeData.name} is an ${resumeData.role} focused on ${resumeData.focus}.`;
 
-  return 'I am Parag\'s AI assistant. Ask about skills, projects, or contact info.';
+  if(q.includes('skill'))
+    return `Key skills: ${resumeData.skills.join(', ')}`;
+
+  if(q.includes('education'))
+    return `Education: ${resumeData.education}`;
+
+  if(q.includes('goal') || q.includes('career'))
+    return `Career goal: ${resumeData.goal}`;
+
+  if(q.includes('contact') || q.includes('email'))
+    return `You can contact Parag at ${resumeData.email}`;
+
+  if(q.includes('project'))
+    return `Projects include NeRF reconstruction, GAN image enhancement, and diffusion-based learning.`;
+
+  if(q.includes('resume') || q.includes('cv'))
+    return `You can download the resume using the Download CV button.`;
+
+  return "I can answer questions about Parag's resume, skills, education, projects, and contact info.";
 }
 </script>
 
